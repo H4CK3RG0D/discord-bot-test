@@ -2,13 +2,38 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Discord Activity Test</title>
+  <title>Discord Activity YouTube Player</title>
   <style>
-    body { font-family: sans-serif; text-align: center; padding: 2rem; }
+    body {
+      background-color: #202225;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #57F287;
+      margin-bottom: 20px;
+    }
+    iframe {
+      border: none;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
-  <h1>✅ Discord Activity is running!</h1>
-  <p>If you can see this in Discord, your Activity mapping works.</p>
+  <h1>🎬 Enjoy the Video</h1>
+  <iframe 
+    width="800" 
+    height="450" 
+    src="https://www.youtube.com/embed/oDvMcJZqYrY" 
+    title="YouTube video player" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
 </body>
 </html>
