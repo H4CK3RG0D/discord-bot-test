@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Discord Activity YouTube Player</title>
-  <style>
-    body {
-      background-color: #202225;
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-    h1 {
-      color: #f7d600;
-      margin-bottom: 20px;
-    }
-    iframe {
-      border: none;
-      border-radius: 10px;
-    }
-  </style>
-</head>
-<body>
-  <h1>PUT IT ONGGGGGGGGGG</h1>
-  <div class="player">
-  <iframe
-    src="https://www.youtube-nocookie.com/embed/oDvMcJZqYrY?rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1"
-    title="YouTube"
-    allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-    allowfullscreen
-    referrerpolicy="strict-origin-when-cross-origin"
-    style="width:100%;height:100%;border:0;border-radius:12px"
-  ></iframe>
-</div>
-<style>
-  .player{position:relative;width:100%;max-width:960px;aspect-ratio:16/9;margin:24px auto;overflow:hidden}
-  body{margin:0;background:#202225;color:#fff;font-family:system-ui,Arial}
-</style>
-
-</body>
+   <head>
+      <meta charset="utf-8" />
+      <title>Unlimited Wordle — Minimal</title>
+      <style>
+         :root { --bg:#0f1115; --tile:#202329; --border:#2a2e36; --g:#538d4e; --y:#b59f3b; --x:#3a3a3c; }
+         * { box-sizing: border-box }
+         html,body { height:100%; margin:0; background:var(--bg); color:#d9d9d9; font:16px/1.4 system-ui,Segoe UI,Arial }
+         .wrap{ max-width:720px; margin:32px auto; padding:0 16px; }
+         .board{ width:340px; max-width:90vw; margin:0 auto 20px; display:grid; grid-template-columns:repeat(5,1fr); gap:8px }
+         .cell{
+         aspect-ratio:1/1; border:2px solid var(--border); border-radius:8px;
+         display:grid; place-items:center; font-weight:800; font-size:clamp(18px,4.5vw,24px);
+         background:var(--tile); text-transform:uppercase; user-select:none;
+         transition:transform .08s ease;
+         }
+         .cell.filled{ border-color:#444 }
+         .g{ background:var(--g); border-color:var(--g) }
+         .y{ background:var(--y); border-color:var(--y) }
+         .x{ background:var(--x); border-color:var(--x) }
+         .row-reveal .cell { animation:flip .3s ease both }
+         @keyframes flip { 0%{transform:rotateX(0)} 100%{transform:rotateX(180deg)} }
+         .bar{display:flex; gap:8px; justify-content:center; align-items:center; margin-top:8px}
+         .bar input{width:160px; padding:10px 12px; border:1px solid #2e3340; border-radius:8px; background:#141820; color:#fff; outline:none}
+         .bar button{padding:10px 14px; border:0; border-radius:8px; background:#5865F2; color:#fff; cursor:pointer}
+         .msg{height:22px; text-align:center; opacity:.8; margin-top:8px}
+      </style>
+      <style>
+         .popup {
+         position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+         background: #1f2229; padding: 16px 20px; border-radius: 12px;
+         box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+         color: #fff; text-align: center; z-index: 999;
+         }
+         .popup button {
+         margin: 8px 6px 0; padding: 6px 12px;
+         border: none; border-radius: 8px; cursor: pointer;
+         background: #5865F2; color: #fff;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="wrap">
+         <div id="board" class="board"></div>
+         <div class="bar">
+            <input id="ghost" maxlength="5" placeholder="type here or on keyboard"/>
+            <button id="enter">Enter</button>
+            <button id="new">New</button>
+         </div>
+         <div id="msg" class="msg"></div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/@discord/embedded-app-sdk@latest/dist/index.min.js"></script>
+      <script>
+        const { discordSdk } = window;
+        const sdk = new discordSdk();
+      </script>
+      <script type="module" src="index.js"></script>
+   </body>
 </html>
